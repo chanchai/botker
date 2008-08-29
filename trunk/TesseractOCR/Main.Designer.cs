@@ -50,7 +50,7 @@ namespace TesseractOCR
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(658, 33);
+            this.panel1.Size = new System.Drawing.Size(807, 33);
             this.panel1.TabIndex = 0;
             // 
             // progressBar1
@@ -59,7 +59,7 @@ namespace TesseractOCR
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar1.Location = new System.Drawing.Point(310, 6);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(280, 23);
+            this.progressBar1.Size = new System.Drawing.Size(429, 23);
             this.progressBar1.TabIndex = 4;
             // 
             // btnDoOCR
@@ -108,7 +108,7 @@ namespace TesseractOCR
             this.lstResult.FormattingEnabled = true;
             this.lstResult.Location = new System.Drawing.Point(0, 33);
             this.lstResult.Name = "lstResult";
-            this.lstResult.Size = new System.Drawing.Size(145, 420);
+            this.lstResult.Size = new System.Drawing.Size(145, 433);
             this.lstResult.TabIndex = 1;
             this.lstResult.SelectedIndexChanged += new System.EventHandler(this.lstResult_SelectedIndexChanged);
             // 
@@ -124,7 +124,7 @@ namespace TesseractOCR
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(145, 33);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(513, 422);
+            this.panel2.Size = new System.Drawing.Size(662, 436);
             this.panel2.TabIndex = 2;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -132,7 +132,7 @@ namespace TesseractOCR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(658, 455);
+            this.ClientSize = new System.Drawing.Size(807, 469);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.lstResult);
             this.Controls.Add(this.panel1);

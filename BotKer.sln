@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tess", "Tess\Tess.vcproj", "{FEDB9ED8-BBB4-4AE1-91C6-0D2EA4198BB5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tessnet2", "Tess\Tess.vcproj", "{FEDB9ED8-BBB4-4AE1-91C6-0D2EA4198BB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesseractConsole", "TesseractConsole\TesseractConsole.csproj", "{AD534EEE-AB29-4A23-996B-0DE48981A00B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesseractOCR", "TesseractOCR\TesseractOCR.csproj", "{FF84F7CE-DD63-4A97-AFAA-0E195364C63E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +27,26 @@ Global
 		{FEDB9ED8-BBB4-4AE1-91C6-0D2EA4198BB5}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{FEDB9ED8-BBB4-4AE1-91C6-0D2EA4198BB5}.Release|Win32.ActiveCfg = Release|Win32
 		{FEDB9ED8-BBB4-4AE1-91C6-0D2EA4198BB5}.Release|Win32.Build.0 = Release|Win32
+		{AD534EEE-AB29-4A23-996B-0DE48981A00B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD534EEE-AB29-4A23-996B-0DE48981A00B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD534EEE-AB29-4A23-996B-0DE48981A00B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{AD534EEE-AB29-4A23-996B-0DE48981A00B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{AD534EEE-AB29-4A23-996B-0DE48981A00B}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{AD534EEE-AB29-4A23-996B-0DE48981A00B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD534EEE-AB29-4A23-996B-0DE48981A00B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD534EEE-AB29-4A23-996B-0DE48981A00B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{AD534EEE-AB29-4A23-996B-0DE48981A00B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{AD534EEE-AB29-4A23-996B-0DE48981A00B}.Release|Win32.ActiveCfg = Release|Any CPU
+		{FF84F7CE-DD63-4A97-AFAA-0E195364C63E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF84F7CE-DD63-4A97-AFAA-0E195364C63E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF84F7CE-DD63-4A97-AFAA-0E195364C63E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FF84F7CE-DD63-4A97-AFAA-0E195364C63E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FF84F7CE-DD63-4A97-AFAA-0E195364C63E}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{FF84F7CE-DD63-4A97-AFAA-0E195364C63E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF84F7CE-DD63-4A97-AFAA-0E195364C63E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF84F7CE-DD63-4A97-AFAA-0E195364C63E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FF84F7CE-DD63-4A97-AFAA-0E195364C63E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{FF84F7CE-DD63-4A97-AFAA-0E195364C63E}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

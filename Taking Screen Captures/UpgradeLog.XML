@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Taking Screen Captures">
+</Property><Property Name="Solution File" Value="C:\Documents and Settings\Armand\Mes documents\Taking Screen Captures\Taking Screen Captures.sln">
+</Property><Property Name="Date" Value="jeudi 28 août 2008">
+</Property><Property Name="Time" Value="14:48">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="Taking Screen Captures.sln" Description="File successfully backed up as C:\Documents and Settings\Armand\Mes documents\Taking Screen Captures\Backup\Taking Screen Captures.sln">
+</Event><Event ErrorLevel="0" Project="CodeReflection.ScreenCapturingDemo" Source="CodeReflection.ScreenCapturingDemo.csproj" Description="Project file successfully backed up as C:\Documents and Settings\Armand\Mes documents\Taking Screen Captures\Backup\CodeReflection.ScreenCapturingDemo.csproj">
+</Event><Event ErrorLevel="0" Project="CodeReflection.ScreenCapturingDemo" Source="CodeReflection.ScreenCapturingDemo.csproj.user" Description="Project user file successfully backed up as C:\Documents and Settings\Armand\Mes documents\Taking Screen Captures\Backup\CodeReflection.ScreenCapturingDemo.csproj.user">
+</Event><Event ErrorLevel="0" Project="CodeReflection.ScreenCapturingDemo" Source="AssemblyInfo.cs" Description="File successfully backed up as C:\Documents and Settings\Armand\Mes documents\Taking Screen Captures\Backup\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="CodeReflection.ScreenCapturingDemo" Source="CaptureWindow.cs" Description="File successfully backed up as C:\Documents and Settings\Armand\Mes documents\Taking Screen Captures\Backup\CaptureWindow.cs">
+</Event><Event ErrorLevel="0" Project="CodeReflection.ScreenCapturingDemo" Source="EmbeddedResources.cs" Description="File successfully backed up as C:\Documents and Settings\Armand\Mes documents\Taking Screen Captures\Backup\EmbeddedResources.cs">
+</Event><Event ErrorLevel="0" Project="CodeReflection.ScreenCapturingDemo" Source="ScreenCapturing.cs" Description="File successfully backed up as C:\Documents and Settings\Armand\Mes documents\Taking Screen Captures\Backup\ScreenCapturing.cs">
+</Event><Event ErrorLevel="0" Project="CodeReflection.ScreenCapturingDemo" Source="SpyWindow.cs" Description="File successfully backed up as C:\Documents and Settings\Armand\Mes documents\Taking Screen Captures\Backup\SpyWindow.cs">
+</Event><Event ErrorLevel="0" Project="CodeReflection.ScreenCapturingDemo" Source="Startup.cs" Description="File successfully backed up as C:\Documents and Settings\Armand\Mes documents\Taking Screen Captures\Backup\Startup.cs">
+</Event><Event ErrorLevel="0" Project="CodeReflection.ScreenCapturingDemo" Source="Win32.cs" Description="File successfully backed up as C:\Documents and Settings\Armand\Mes documents\Taking Screen Captures\Backup\Win32.cs">
+</Event><Event ErrorLevel="0" Project="CodeReflection.ScreenCapturingDemo" Source="WindowHighlighter.cs" Description="File successfully backed up as C:\Documents and Settings\Armand\Mes documents\Taking Screen Captures\Backup\WindowHighlighter.cs">
+</Event><Event ErrorLevel="0" Project="CodeReflection.ScreenCapturingDemo" Source="App.ico" Description="File successfully backed up as C:\Documents and Settings\Armand\Mes documents\Taking Screen Captures\Backup\App.ico">
+</Event><Event ErrorLevel="0" Project="CodeReflection.ScreenCapturingDemo" Source="CaptureWindow.resx" Description="File successfully backed up as C:\Documents and Settings\Armand\Mes documents\Taking Screen Captures\Backup\CaptureWindow.resx">
+</Event><Event ErrorLevel="0" Project="CodeReflection.ScreenCapturingDemo" Source="Finder.cur" Description="File successfully backed up as C:\Documents and Settings\Armand\Mes documents\Taking Screen Captures\Backup\Finder.cur">
+</Event><Event ErrorLevel="0" Project="CodeReflection.ScreenCapturingDemo" Source="FinderGone.bmp" Description="File successfully backed up as C:\Documents and Settings\Armand\Mes documents\Taking Screen Captures\Backup\FinderGone.bmp">
+</Event><Event ErrorLevel="0" Project="CodeReflection.ScreenCapturingDemo" Source="FinderHome.bmp" Description="File successfully backed up as C:\Documents and Settings\Armand\Mes documents\Taking Screen Captures\Backup\FinderHome.bmp">
+</Event><Event ErrorLevel="0" Project="CodeReflection.ScreenCapturingDemo" Source="SpyWindow.resx" Description="File successfully backed up as C:\Documents and Settings\Armand\Mes documents\Taking Screen Captures\Backup\SpyWindow.resx">
+</Event><Event ErrorLevel="0" Project="CodeReflection.ScreenCapturingDemo" Source="CodeReflection.ScreenCapturingDemo.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CodeReflection.ScreenCapturingDemo" Source="CodeReflection.ScreenCapturingDemo.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Taking Screen Captures.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="Taking Screen Captures.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CodeReflection.ScreenCapturingDemo" Source="CodeReflection.ScreenCapturingDemo.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

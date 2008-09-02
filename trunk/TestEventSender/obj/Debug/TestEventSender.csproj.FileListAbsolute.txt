@@ -6,3 +6,5 @@ C:\Documents and Settings\Armand\Mes documents\Visual Studio 2008\Projects\WinEv
 C:\Documents and Settings\Armand\Mes documents\Visual Studio 2008\Projects\WinEventReceiver\TestEventSender\bin\Debug\TestEventSender.pdb
 C:\Documents and Settings\Armand\Mes documents\Visual Studio 2008\Projects\WinEventReceiver\TestEventSender\obj\Debug\TestEventSender.exe
 C:\Documents and Settings\Armand\Mes documents\Visual Studio 2008\Projects\WinEventReceiver\TestEventSender\obj\Debug\TestEventSender.pdb
+C:\Documents and Settings\Armand\Mes documents\Visual Studio 2008\Projects\botker\TestEventSender\obj\Debug\TestEventSender.exe
+C:\Documents and Settings\Armand\Mes documents\Visual Studio 2008\Projects\botker\TestEventSender\obj\Debug\TestEventSender.pdb

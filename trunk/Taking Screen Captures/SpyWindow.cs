@@ -37,7 +37,8 @@ namespace CodeReflection.ScreenCapturingDemo
 		private System.Windows.Forms.TextBox _textBoxClass;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox _textBoxText;
-		private System.Windows.Forms.Label label2;		
+		private System.Windows.Forms.Label label2;
+        private ListBox listBox1;		
 		private System.ComponentModel.Container components = null;
 
 		/// <summary>
@@ -89,202 +90,212 @@ namespace CodeReflection.ScreenCapturingDemo
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this._buttonOK = new System.Windows.Forms.Button();
-			this._buttonCancel = new System.Windows.Forms.Button();
-			this._buttonCapture = new System.Windows.Forms.Button();
-			this._pictureBox = new System.Windows.Forms.PictureBox();
-			this.label7 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this._textBoxRect = new System.Windows.Forms.TextBox();
-			this._textBoxStyle = new System.Windows.Forms.TextBox();
-			this.label5 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this._textBoxHandle = new System.Windows.Forms.TextBox();
-			this._textBoxClass = new System.Windows.Forms.TextBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this._textBoxText = new System.Windows.Forms.TextBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.SuspendLayout();
-			// 
-			// _buttonOK
-			// 
-			this._buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this._buttonOK.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this._buttonOK.Location = new System.Drawing.Point(195, 240);
-			this._buttonOK.Name = "_buttonOK";
-			this._buttonOK.TabIndex = 7;
-			this._buttonOK.Text = "OK";
-			// 
-			// _buttonCancel
-			// 
-			this._buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this._buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this._buttonCancel.Location = new System.Drawing.Point(275, 240);
-			this._buttonCancel.Name = "_buttonCancel";
-			this._buttonCancel.TabIndex = 8;
-			this._buttonCancel.Text = "Cancel";
-			// 
-			// _buttonCapture
-			// 
-			this._buttonCapture.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this._buttonCapture.Location = new System.Drawing.Point(275, 100);
-			this._buttonCapture.Name = "_buttonCapture";
-			this._buttonCapture.Size = new System.Drawing.Size(75, 25);
-			this._buttonCapture.TabIndex = 14;
-			this._buttonCapture.Text = "Capture";
-			// 
-			// _pictureBox
-			// 
-			this._pictureBox.Location = new System.Drawing.Point(90, 60);
-			this._pictureBox.Name = "_pictureBox";
-			this._pictureBox.Size = new System.Drawing.Size(32, 32);
-			this._pictureBox.TabIndex = 27;
-			this._pictureBox.TabStop = false;
-			// 
-			// label7
-			// 
-			this.label7.Location = new System.Drawing.Point(15, 65);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(70, 20);
-			this.label7.TabIndex = 26;
-			this.label7.Text = "Finder Tool:";
-			// 
-			// label6
-			// 
-			this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right)));
-			this.label6.Location = new System.Drawing.Point(10, 10);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(345, 40);
-			this.label6.TabIndex = 25;
-			this.label6.Text = "Drag the Finder Tool over a window to select it, then release the mouse button. O" +
-				"r enter a window handle (in hexadecimal).";
-			// 
-			// _textBoxRect
-			// 
-			this._textBoxRect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right)));
-			this._textBoxRect.BackColor = System.Drawing.SystemColors.Window;
-			this._textBoxRect.Location = new System.Drawing.Point(65, 205);
-			this._textBoxRect.Name = "_textBoxRect";
-			this._textBoxRect.Size = new System.Drawing.Size(285, 20);
-			this._textBoxRect.TabIndex = 24;
-			this._textBoxRect.Text = "";
-			// 
-			// _textBoxStyle
-			// 
-			this._textBoxStyle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right)));
-			this._textBoxStyle.BackColor = System.Drawing.SystemColors.Window;
-			this._textBoxStyle.Location = new System.Drawing.Point(65, 180);
-			this._textBoxStyle.Name = "_textBoxStyle";
-			this._textBoxStyle.Size = new System.Drawing.Size(285, 20);
-			this._textBoxStyle.TabIndex = 23;
-			this._textBoxStyle.Text = "";
-			// 
-			// label5
-			// 
-			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.label5.Location = new System.Drawing.Point(10, 205);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(55, 20);
-			this.label5.TabIndex = 22;
-			this.label5.Text = "Rect:";
-			// 
-			// label4
-			// 
-			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.label4.Location = new System.Drawing.Point(10, 180);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(55, 20);
-			this.label4.TabIndex = 21;
-			this.label4.Text = "Style:";
-			// 
-			// label3
-			// 
-			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.label3.Location = new System.Drawing.Point(10, 130);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(55, 20);
-			this.label3.TabIndex = 17;
-			this.label3.Text = "Caption:";
-			// 
-			// _textBoxHandle
-			// 
-			this._textBoxHandle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this._textBoxHandle.BackColor = System.Drawing.SystemColors.Window;
-			this._textBoxHandle.Location = new System.Drawing.Point(65, 105);
-			this._textBoxHandle.Name = "_textBoxHandle";
-			this._textBoxHandle.Size = new System.Drawing.Size(200, 20);
-			this._textBoxHandle.TabIndex = 18;
-			this._textBoxHandle.Text = "";
-			// 
-			// _textBoxClass
-			// 
-			this._textBoxClass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right)));
-			this._textBoxClass.BackColor = System.Drawing.SystemColors.Window;
-			this._textBoxClass.Location = new System.Drawing.Point(65, 155);
-			this._textBoxClass.Name = "_textBoxClass";
-			this._textBoxClass.Size = new System.Drawing.Size(285, 20);
-			this._textBoxClass.TabIndex = 19;
-			this._textBoxClass.Text = "";
-			// 
-			// label1
-			// 
-			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.label1.Location = new System.Drawing.Point(10, 105);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(55, 20);
-			this.label1.TabIndex = 15;
-			this.label1.Text = "Handle:";
-			// 
-			// _textBoxText
-			// 
-			this._textBoxText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right)));
-			this._textBoxText.BackColor = System.Drawing.SystemColors.Window;
-			this._textBoxText.Location = new System.Drawing.Point(65, 130);
-			this._textBoxText.Name = "_textBoxText";
-			this._textBoxText.Size = new System.Drawing.Size(285, 20);
-			this._textBoxText.TabIndex = 20;
-			this._textBoxText.Text = "";
-			// 
-			// label2
-			// 
-			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.label2.Location = new System.Drawing.Point(10, 155);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(55, 20);
-			this.label2.TabIndex = 16;
-			this.label2.Text = "Class:";
-			// 
-			// SpyWindow
-			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(362, 274);
-			this.Controls.Add(this._pictureBox);
-			this.Controls.Add(this.label7);
-			this.Controls.Add(this.label6);
-			this.Controls.Add(this._textBoxRect);
-			this.Controls.Add(this._textBoxStyle);
-			this.Controls.Add(this.label5);
-			this.Controls.Add(this.label4);
-			this.Controls.Add(this.label3);
-			this.Controls.Add(this._textBoxHandle);
-			this.Controls.Add(this._textBoxClass);
-			this.Controls.Add(this.label1);
-			this.Controls.Add(this._textBoxText);
-			this.Controls.Add(this.label2);
-			this.Controls.Add(this._buttonCancel);
-			this.Controls.Add(this._buttonOK);
-			this.Controls.Add(this._buttonCapture);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			this.Name = "SpyWindow";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Find Window";
-			this.ResumeLayout(false);
+this._buttonOK = new System.Windows.Forms.Button();
+this._buttonCancel = new System.Windows.Forms.Button();
+this._buttonCapture = new System.Windows.Forms.Button();
+this._pictureBox = new System.Windows.Forms.PictureBox();
+this.label7 = new System.Windows.Forms.Label();
+this.label6 = new System.Windows.Forms.Label();
+this._textBoxRect = new System.Windows.Forms.TextBox();
+this._textBoxStyle = new System.Windows.Forms.TextBox();
+this.label5 = new System.Windows.Forms.Label();
+this.label4 = new System.Windows.Forms.Label();
+this.label3 = new System.Windows.Forms.Label();
+this._textBoxHandle = new System.Windows.Forms.TextBox();
+this._textBoxClass = new System.Windows.Forms.TextBox();
+this.label1 = new System.Windows.Forms.Label();
+this._textBoxText = new System.Windows.Forms.TextBox();
+this.label2 = new System.Windows.Forms.Label();
+this.listBox1 = new System.Windows.Forms.ListBox();
+((System.ComponentModel.ISupportInitialize)(this._pictureBox)).BeginInit();
+this.SuspendLayout();
+// 
+// _buttonOK
+// 
+this._buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+this._buttonOK.FlatStyle = System.Windows.Forms.FlatStyle.System;
+this._buttonOK.Location = new System.Drawing.Point(195, 240);
+this._buttonOK.Name = "_buttonOK";
+this._buttonOK.Size = new System.Drawing.Size(75, 23);
+this._buttonOK.TabIndex = 7;
+this._buttonOK.Text = "OK";
+// 
+// _buttonCancel
+// 
+this._buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+this._buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
+this._buttonCancel.Location = new System.Drawing.Point(275, 240);
+this._buttonCancel.Name = "_buttonCancel";
+this._buttonCancel.Size = new System.Drawing.Size(75, 23);
+this._buttonCancel.TabIndex = 8;
+this._buttonCancel.Text = "Cancel";
+// 
+// _buttonCapture
+// 
+this._buttonCapture.FlatStyle = System.Windows.Forms.FlatStyle.System;
+this._buttonCapture.Location = new System.Drawing.Point(275, 100);
+this._buttonCapture.Name = "_buttonCapture";
+this._buttonCapture.Size = new System.Drawing.Size(75, 25);
+this._buttonCapture.TabIndex = 14;
+this._buttonCapture.Text = "Capture";
+// 
+// _pictureBox
+// 
+this._pictureBox.Location = new System.Drawing.Point(90, 60);
+this._pictureBox.Name = "_pictureBox";
+this._pictureBox.Size = new System.Drawing.Size(32, 32);
+this._pictureBox.TabIndex = 27;
+this._pictureBox.TabStop = false;
+// 
+// label7
+// 
+this.label7.Location = new System.Drawing.Point(15, 65);
+this.label7.Name = "label7";
+this.label7.Size = new System.Drawing.Size(70, 20);
+this.label7.TabIndex = 26;
+this.label7.Text = "Finder Tool:";
+// 
+// label6
+// 
+this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+this.label6.Location = new System.Drawing.Point(10, 10);
+this.label6.Name = "label6";
+this.label6.Size = new System.Drawing.Size(345, 40);
+this.label6.TabIndex = 25;
+this.label6.Text = "Drag the Finder Tool over a window to select it, then release the mouse button. O" +
+    "r enter a window handle (in hexadecimal).";
+// 
+// _textBoxRect
+// 
+this._textBoxRect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+this._textBoxRect.BackColor = System.Drawing.SystemColors.Window;
+this._textBoxRect.Location = new System.Drawing.Point(65, 412);
+this._textBoxRect.Name = "_textBoxRect";
+this._textBoxRect.Size = new System.Drawing.Size(285, 20);
+this._textBoxRect.TabIndex = 24;
+// 
+// _textBoxStyle
+// 
+this._textBoxStyle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+this._textBoxStyle.BackColor = System.Drawing.SystemColors.Window;
+this._textBoxStyle.Location = new System.Drawing.Point(65, 387);
+this._textBoxStyle.Name = "_textBoxStyle";
+this._textBoxStyle.Size = new System.Drawing.Size(285, 20);
+this._textBoxStyle.TabIndex = 23;
+// 
+// label5
+// 
+this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+this.label5.Location = new System.Drawing.Point(10, 412);
+this.label5.Name = "label5";
+this.label5.Size = new System.Drawing.Size(55, 20);
+this.label5.TabIndex = 22;
+this.label5.Text = "Rect:";
+// 
+// label4
+// 
+this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+this.label4.Location = new System.Drawing.Point(10, 387);
+this.label4.Name = "label4";
+this.label4.Size = new System.Drawing.Size(55, 20);
+this.label4.TabIndex = 21;
+this.label4.Text = "Style:";
+// 
+// label3
+// 
+this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+this.label3.Location = new System.Drawing.Point(10, 337);
+this.label3.Name = "label3";
+this.label3.Size = new System.Drawing.Size(55, 20);
+this.label3.TabIndex = 17;
+this.label3.Text = "Caption:";
+// 
+// _textBoxHandle
+// 
+this._textBoxHandle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+this._textBoxHandle.BackColor = System.Drawing.SystemColors.Window;
+this._textBoxHandle.Location = new System.Drawing.Point(65, 312);
+this._textBoxHandle.Name = "_textBoxHandle";
+this._textBoxHandle.Size = new System.Drawing.Size(200, 20);
+this._textBoxHandle.TabIndex = 18;
+// 
+// _textBoxClass
+// 
+this._textBoxClass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+this._textBoxClass.BackColor = System.Drawing.SystemColors.Window;
+this._textBoxClass.Location = new System.Drawing.Point(65, 362);
+this._textBoxClass.Name = "_textBoxClass";
+this._textBoxClass.Size = new System.Drawing.Size(285, 20);
+this._textBoxClass.TabIndex = 19;
+// 
+// label1
+// 
+this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+this.label1.Location = new System.Drawing.Point(10, 312);
+this.label1.Name = "label1";
+this.label1.Size = new System.Drawing.Size(55, 20);
+this.label1.TabIndex = 15;
+this.label1.Text = "Handle:";
+// 
+// _textBoxText
+// 
+this._textBoxText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+this._textBoxText.BackColor = System.Drawing.SystemColors.Window;
+this._textBoxText.Location = new System.Drawing.Point(65, 337);
+this._textBoxText.Name = "_textBoxText";
+this._textBoxText.Size = new System.Drawing.Size(285, 20);
+this._textBoxText.TabIndex = 20;
+// 
+// label2
+// 
+this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+this.label2.Location = new System.Drawing.Point(10, 362);
+this.label2.Name = "label2";
+this.label2.Size = new System.Drawing.Size(55, 20);
+this.label2.TabIndex = 16;
+this.label2.Text = "Class:";
+// 
+// listBox1
+// 
+this.listBox1.FormattingEnabled = true;
+this.listBox1.Location = new System.Drawing.Point(23, 122);
+this.listBox1.Name = "listBox1";
+this.listBox1.Size = new System.Drawing.Size(172, 173);
+this.listBox1.TabIndex = 28;
+// 
+// SpyWindow
+// 
+this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+this.ClientSize = new System.Drawing.Size(362, 481);
+this.Controls.Add(this.listBox1);
+this.Controls.Add(this._pictureBox);
+this.Controls.Add(this.label7);
+this.Controls.Add(this.label6);
+this.Controls.Add(this._textBoxRect);
+this.Controls.Add(this._textBoxStyle);
+this.Controls.Add(this.label5);
+this.Controls.Add(this.label4);
+this.Controls.Add(this.label3);
+this.Controls.Add(this._textBoxHandle);
+this.Controls.Add(this._textBoxClass);
+this.Controls.Add(this.label1);
+this.Controls.Add(this._textBoxText);
+this.Controls.Add(this.label2);
+this.Controls.Add(this._buttonCancel);
+this.Controls.Add(this._buttonOK);
+this.Controls.Add(this._buttonCapture);
+this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+this.Name = "SpyWindow";
+this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+this.Text = "Find Window";
+((System.ComponentModel.ISupportInitialize)(this._pictureBox)).EndInit();
+this.ResumeLayout(false);
+this.PerformLayout();
 
 		}
 		#endregion		
@@ -487,6 +498,28 @@ namespace CodeReflection.ScreenCapturingDemo
 			this.Close();
 		}
 
+        private Bitmap ZoomImage(Image bmp)
+        {
+            Bitmap bmpZoom = new Bitmap(bmp.Width * 2, bmp.Height * 2);
+            Graphics g = Graphics.FromImage(bmpZoom);
+            int new4W = bmp.Width / 4;
+            int new4H = bmp.Height / 4;
+            int new2W = bmp.Width / 2;
+            int new2H = bmp.Height / 2;
+            Rectangle srcRect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+            Rectangle dstRect = new Rectangle(0, 0, bmpZoom.Width, bmpZoom.Height);
+            g.DrawImage(bmp, dstRect, srcRect, GraphicsUnit.Pixel);
+            g.Dispose();
+            return bmpZoom;
+        }
+        private void DoOCR( void)
+        {
+            tessnet2.Tesseract ocr = new tessnet2.Tesseract();
+            ocr.Init(lang, false);
+            List<tessnet2.Word> result = ocr.DoOCR(image, Rectangle.Empty);
+            foreach (tessnet2.Word word in result)
+                Console.WriteLine("{0} : {1}", word.Confidence, word.Text);
+        }
 		/// <summary>
 		/// Occurs when the user wants to capture the window that we've captured
 		/// </summary>
@@ -501,7 +534,12 @@ namespace CodeReflection.ScreenCapturingDemo
 				
 				// capture that window
 				Image image = ScreenCapturing.GetWindowCaptureAsBitmap(handle);
-				
+                
+                image = this.ZoomImage(image);
+
+                ocr.DoOCRNormal(image, "eng");
+
+
 				// fire our image read event, which the main window will display for us
 				this.OnImageReadyForDisplay(image);
 			}
@@ -520,5 +558,7 @@ namespace CodeReflection.ScreenCapturingDemo
 		{
 			_buttonCapture.Enabled = (_textBoxHandle.Text != null && _textBoxHandle.Text != string.Empty);
 		}
+
+ 
 	}
 }

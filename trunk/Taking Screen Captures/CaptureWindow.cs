@@ -32,6 +32,7 @@ namespace CodeReflection.ScreenCapturingDemo
 		private System.Windows.Forms.PictureBox _canvas;
 		private System.Windows.Forms.MenuItem menuItem3;
 		private System.Windows.Forms.MenuItem _menuItemSpyWindows;
+        private IContainer components;
 
 		private enum CaptureActions
 		{
@@ -41,12 +42,7 @@ namespace CodeReflection.ScreenCapturingDemo
 			SmallIcon,
 			LargeIcon,
 			Clear
-		}
-
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.Container components = null;
+        }
 
 		public CaptureWindow()
 		{
@@ -89,109 +85,112 @@ namespace CodeReflection.ScreenCapturingDemo
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this._statusBar = new System.Windows.Forms.StatusBar();
-			this.mainMenu1 = new System.Windows.Forms.MainMenu();
-			this.menuItem1 = new System.Windows.Forms.MenuItem();
-			this._menuItemDesktop = new System.Windows.Forms.MenuItem();
-			this._menuItemWindow = new System.Windows.Forms.MenuItem();
-			this._menuItemSmallIcon = new System.Windows.Forms.MenuItem();
-			this._menuItemLargeIcon = new System.Windows.Forms.MenuItem();
-			this.menuItem2 = new System.Windows.Forms.MenuItem();
-			this._menuItemClear = new System.Windows.Forms.MenuItem();
-			this._canvas = new System.Windows.Forms.PictureBox();
-			this.menuItem3 = new System.Windows.Forms.MenuItem();
-			this._menuItemSpyWindows = new System.Windows.Forms.MenuItem();
-			this.SuspendLayout();
-			// 
-			// _statusBar
-			// 
-			this._statusBar.Location = new System.Drawing.Point(0, 403);
-			this._statusBar.Name = "_statusBar";
-			this._statusBar.Size = new System.Drawing.Size(592, 22);
-			this._statusBar.TabIndex = 1;
-			this._statusBar.Text = "Key Bindings - [D]esktop, [W]indow, Window [S]mall Icon, Window [L]arge Icon, [C]" +
-				"lear Image";
-			// 
-			// mainMenu1
-			// 
-			this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					  this.menuItem1,
-																					  this.menuItem3});
-			// 
-			// menuItem1
-			// 
-			this.menuItem1.Index = 0;
-			this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					  this._menuItemDesktop,
-																					  this._menuItemWindow,
-																					  this._menuItemSmallIcon,
-																					  this._menuItemLargeIcon,
-																					  this.menuItem2,
-																					  this._menuItemClear});
-			this.menuItem1.Text = "Actions";
-			// 
-			// _menuItemDesktop
-			// 
-			this._menuItemDesktop.Index = 0;
-			this._menuItemDesktop.Text = "Capture the Desktop";
-			// 
-			// _menuItemWindow
-			// 
-			this._menuItemWindow.Index = 1;
-			this._menuItemWindow.Text = "Capture this window";
-			// 
-			// _menuItemSmallIcon
-			// 
-			this._menuItemSmallIcon.Index = 2;
-			this._menuItemSmallIcon.Text = "Capture this window\'s small icon";
-			// 
-			// _menuItemLargeIcon
-			// 
-			this._menuItemLargeIcon.Index = 3;
-			this._menuItemLargeIcon.Text = "Capture this window\'s large icon";
-			// 
-			// menuItem2
-			// 
-			this.menuItem2.Index = 4;
-			this.menuItem2.Text = "-";
-			// 
-			// _menuItemClear
-			// 
-			this._menuItemClear.Index = 5;
-			this._menuItemClear.Text = "Clear image";
-			// 
-			// _canvas
-			// 
-			this._canvas.BackColor = System.Drawing.Color.FromArgb(((System.Byte)(64)), ((System.Byte)(64)), ((System.Byte)(64)));
-			this._canvas.Dock = System.Windows.Forms.DockStyle.Fill;
-			this._canvas.Location = new System.Drawing.Point(0, 0);
-			this._canvas.Name = "_canvas";
-			this._canvas.Size = new System.Drawing.Size(592, 403);
-			this._canvas.TabIndex = 2;
-			this._canvas.TabStop = false;
-			// 
-			// menuItem3
-			// 
-			this.menuItem3.Index = 1;
-			this.menuItem3.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					  this._menuItemSpyWindows});
-			this.menuItem3.Text = "Spy";
-			// 
-			// _menuItemSpyWindows
-			// 
-			this._menuItemSpyWindows.Index = 0;
-			this._menuItemSpyWindows.Text = "Windows...";
-			// 
-			// CaptureWindow
-			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(592, 425);
-			this.Controls.Add(this._canvas);
-			this.Controls.Add(this._statusBar);
-			this.Menu = this.mainMenu1;
-			this.Name = "CaptureWindow";
-			this.Text = "Screen Capturing Demo";
-			this.ResumeLayout(false);
+            this.components = new System.ComponentModel.Container();
+            this._statusBar = new System.Windows.Forms.StatusBar();
+            this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
+            this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this._menuItemDesktop = new System.Windows.Forms.MenuItem();
+            this._menuItemWindow = new System.Windows.Forms.MenuItem();
+            this._menuItemSmallIcon = new System.Windows.Forms.MenuItem();
+            this._menuItemLargeIcon = new System.Windows.Forms.MenuItem();
+            this.menuItem2 = new System.Windows.Forms.MenuItem();
+            this._menuItemClear = new System.Windows.Forms.MenuItem();
+            this.menuItem3 = new System.Windows.Forms.MenuItem();
+            this._menuItemSpyWindows = new System.Windows.Forms.MenuItem();
+            this._canvas = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this._canvas)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // _statusBar
+            // 
+            this._statusBar.Location = new System.Drawing.Point(0, 403);
+            this._statusBar.Name = "_statusBar";
+            this._statusBar.Size = new System.Drawing.Size(592, 22);
+            this._statusBar.TabIndex = 1;
+            this._statusBar.Text = "Key Bindings - [D]esktop, [W]indow, Window [S]mall Icon, Window [L]arge Icon, [C]" +
+                "lear Image";
+            // 
+            // mainMenu1
+            // 
+            this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem1,
+            this.menuItem3});
+            // 
+            // menuItem1
+            // 
+            this.menuItem1.Index = 0;
+            this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this._menuItemDesktop,
+            this._menuItemWindow,
+            this._menuItemSmallIcon,
+            this._menuItemLargeIcon,
+            this.menuItem2,
+            this._menuItemClear});
+            this.menuItem1.Text = "Actions";
+            // 
+            // _menuItemDesktop
+            // 
+            this._menuItemDesktop.Index = 0;
+            this._menuItemDesktop.Text = "Capture the Desktop";
+            // 
+            // _menuItemWindow
+            // 
+            this._menuItemWindow.Index = 1;
+            this._menuItemWindow.Text = "Capture this window";
+            // 
+            // _menuItemSmallIcon
+            // 
+            this._menuItemSmallIcon.Index = 2;
+            this._menuItemSmallIcon.Text = "Capture this window\'s small icon";
+            // 
+            // _menuItemLargeIcon
+            // 
+            this._menuItemLargeIcon.Index = 3;
+            this._menuItemLargeIcon.Text = "Capture this window\'s large icon";
+            // 
+            // menuItem2
+            // 
+            this.menuItem2.Index = 4;
+            this.menuItem2.Text = "-";
+            // 
+            // _menuItemClear
+            // 
+            this._menuItemClear.Index = 5;
+            this._menuItemClear.Text = "Clear image";
+            // 
+            // menuItem3
+            // 
+            this.menuItem3.Index = 1;
+            this.menuItem3.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this._menuItemSpyWindows});
+            this.menuItem3.Text = "Spy";
+            // 
+            // _menuItemSpyWindows
+            // 
+            this._menuItemSpyWindows.Index = 0;
+            this._menuItemSpyWindows.Text = "Windows...";
+            // 
+            // _canvas
+            // 
+            this._canvas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this._canvas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._canvas.Location = new System.Drawing.Point(0, 0);
+            this._canvas.Name = "_canvas";
+            this._canvas.Size = new System.Drawing.Size(592, 403);
+            this._canvas.TabIndex = 2;
+            this._canvas.TabStop = false;
+            // 
+            // CaptureWindow
+            // 
+            this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+            this.ClientSize = new System.Drawing.Size(592, 425);
+            this.Controls.Add(this._canvas);
+            this.Controls.Add(this._statusBar);
+            this.Menu = this.mainMenu1;
+            this.Name = "CaptureWindow";
+            this.Text = "Screen Capturing Demo";
+            ((System.ComponentModel.ISupportInitialize)(this._canvas)).EndInit();
+            this.ResumeLayout(false);
 
 		}
 		#endregion

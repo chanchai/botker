@@ -8,3 +8,11 @@ C:\Documents and Settings\Armand\Mes documents\Visual Studio 2008\Projects\WinEv
 C:\Documents and Settings\Armand\Mes documents\Visual Studio 2008\Projects\WinEventReceiver\WinEventReceiver\obj\Debug\WinEventReceiver.pdb
 C:\Documents and Settings\Armand\Mes documents\Visual Studio 2008\Projects\botker\WinEventReceiver\obj\Debug\WinEventReceiver.exe
 C:\Documents and Settings\Armand\Mes documents\Visual Studio 2008\Projects\botker\WinEventReceiver\obj\Debug\WinEventReceiver.pdb
+C:\Users\Aline\Documents\Visual Studio 2008\Projects\BotKer\WinEventReceiver\bin\Debug\WinEventReceiver.exe
+C:\Users\Aline\Documents\Visual Studio 2008\Projects\BotKer\WinEventReceiver\bin\Debug\WinEventReceiver.pdb
+C:\Users\Aline\Documents\Visual Studio 2008\Projects\BotKer\WinEventReceiver\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Aline\Documents\Visual Studio 2008\Projects\BotKer\WinEventReceiver\obj\Debug\WinEventReceiver.Form1.resources
+C:\Users\Aline\Documents\Visual Studio 2008\Projects\BotKer\WinEventReceiver\obj\Debug\WinEventReceiver.Properties.Resources.resources
+C:\Users\Aline\Documents\Visual Studio 2008\Projects\BotKer\WinEventReceiver\obj\Debug\WinEventReceiver.csproj.GenerateResource.Cache
+C:\Users\Aline\Documents\Visual Studio 2008\Projects\BotKer\WinEventReceiver\obj\Debug\WinEventReceiver.exe
+C:\Users\Aline\Documents\Visual Studio 2008\Projects\BotKer\WinEventReceiver\obj\Debug\WinEventReceiver.pdb

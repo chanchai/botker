@@ -499,6 +499,56 @@ this.PerformLayout();
 			this.Close();
 		}
 
+        /// <summary>
+        /// split and zoom
+        /// </summary>
+        /// <param name="bmp"></param>
+        /// <param name="count"></param>
+        /// <param name="mode">1: horizontalement ou 2:verticalement</param>
+        /// <param name="zoom">valeur de zoom</param>
+        private Bitmap[] SplitImage(Image bmp, int count, int mode, int zoom)
+        {
+            Bitmap[] bmpList = new Bitmap[count];
+            int width, height;
+            Rectangle srcRect, dstRect;
+            Bitmap bmpZoom;
+
+            if(mode == 1)
+            {
+                width = bmp.Width * zoom ;
+                height = bmp.Height /count * zoom ;
+            }
+            else
+            {
+                width = bmp.Width /count * zoom ;
+                height = bmp.Height * zoom ;
+            }
+
+            if(mode == 1)
+                srcRect = new Rectangle(0, 0, bmp.Width, bmp.Height/count);
+            else
+                srcRect = new Rectangle(0, 0, bmp.Width/count, bmp.Height);
+
+            dstRect = new Rectangle(0, 0, width, height);
+            
+            for(int i = 0; i < count; i+=1)
+            {   
+                if(mode==1)
+                    bmpZoom = new Bitmap(bmp.Width * zoom, bmp.Height /count * zoom);
+                else
+                    bmpZoom = new Bitmap(bmp.Width /count * zoom, bmp.Height * zoom);
+
+                Graphics g = Graphics.FromImage(bmpZoom);
+                g.DrawImage(bmp, dstRect, srcRect, GraphicsUnit.Pixel);
+                g.Dispose();
+                
+                bmpList[i] = bmpZoom;
+            }
+
+            return bmpList;
+        }
+
+
         private Bitmap ZoomImage(Image bmp, int zoom)
         {
             Bitmap bmpZoom = new Bitmap(bmp.Width * zoom, bmp.Height * zoom);
@@ -532,9 +582,10 @@ this.PerformLayout();
 		/// <param name="e"></param>
 		private void OnButtonCaptureClicked(object sender, EventArgs e)
 		{
-            
-			try
-			{
+            Bitmap[] bmpList;
+
+//			try
+//			{
                 DateTime dtStart, dtEnd;
 
 				// parse the window handle
@@ -543,23 +594,25 @@ this.PerformLayout();
 				// capture that window
 				Bitmap image = ScreenCapturing.GetWindowCaptureAsBitmap(handle);
                 
-                image = this.ZoomImage(image, 1);
+                bmpList = this.SplitImage(image, 15, 1, 2);
 
+                
                 dtStart = DateTime.Now;
-                DoOCR(image, "fra");
+                DoOCR(bmpList[0], "fra");
                 dtEnd = DateTime.Now;
 
                 TimeSpan tsDiff = dtEnd.Subtract(dtStart);
                 MessageBox.Show(tsDiff.Milliseconds+" s");
-
+                
 
 				// fire our image read event, which the main window will display for us
-				this.OnImageReadyForDisplay(image);
-			}
+                this.OnImageReadyForDisplay(bmpList[0]);
+/*          }
 			catch(Exception ex)
 			{
 				Debug.WriteLine(ex);
 			}
+ */
 		}
 
 		/// <summary>

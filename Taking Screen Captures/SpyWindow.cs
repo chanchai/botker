@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Collections.Generic;
 
 namespace CodeReflection.ScreenCapturingDemo
 {
@@ -498,28 +499,32 @@ this.PerformLayout();
 			this.Close();
 		}
 
-        private Bitmap ZoomImage(Image bmp)
+        private Bitmap ZoomImage(Image bmp, int zoom)
         {
-            Bitmap bmpZoom = new Bitmap(bmp.Width * 2, bmp.Height * 2);
+            Bitmap bmpZoom = new Bitmap(bmp.Width * zoom, bmp.Height * zoom);
             Graphics g = Graphics.FromImage(bmpZoom);
-            int new4W = bmp.Width / 4;
-            int new4H = bmp.Height / 4;
-            int new2W = bmp.Width / 2;
-            int new2H = bmp.Height / 2;
+
             Rectangle srcRect = new Rectangle(0, 0, bmp.Width, bmp.Height);
             Rectangle dstRect = new Rectangle(0, 0, bmpZoom.Width, bmpZoom.Height);
+
             g.DrawImage(bmp, dstRect, srcRect, GraphicsUnit.Pixel);
             g.Dispose();
             return bmpZoom;
         }
-        private void DoOCR( void)
+
+        private void DoOCR(Bitmap image, String lang)
         {
-            tessnet2.Tesseract ocr = new tessnet2.Tesseract();
-            ocr.Init(lang, false);
-            List<tessnet2.Word> result = ocr.DoOCR(image, Rectangle.Empty);
-            foreach (tessnet2.Word word in result)
-                Console.WriteLine("{0} : {1}", word.Confidence, word.Text);
+                tessnet2.Tesseract ocr = new tessnet2.Tesseract();
+
+                ocr.Init(lang, false);
+
+                List<tessnet2.Word> result = ocr.DoOCR(image, Rectangle.Empty);
+
+                foreach (tessnet2.Word word in result)
+                    listBox1.Items.Add(word.Text);
+                // Console.WriteLine("{0} : {1}", word.Confidence, word.Text);
         }
+
 		/// <summary>
 		/// Occurs when the user wants to capture the window that we've captured
 		/// </summary>
@@ -527,17 +532,25 @@ this.PerformLayout();
 		/// <param name="e"></param>
 		private void OnButtonCaptureClicked(object sender, EventArgs e)
 		{
+            
 			try
 			{
+                DateTime dtStart, dtEnd;
+
 				// parse the window handle
 				int handle = int.Parse(_textBoxHandle.Text);
 				
 				// capture that window
-				Image image = ScreenCapturing.GetWindowCaptureAsBitmap(handle);
+				Bitmap image = ScreenCapturing.GetWindowCaptureAsBitmap(handle);
                 
-                image = this.ZoomImage(image);
+                image = this.ZoomImage(image, 1);
 
-                ocr.DoOCRNormal(image, "eng");
+                dtStart = DateTime.Now;
+                DoOCR(image, "fra");
+                dtEnd = DateTime.Now;
+
+                TimeSpan tsDiff = dtEnd.Subtract(dtStart);
+                MessageBox.Show(tsDiff.Milliseconds+" s");
 
 
 				// fire our image read event, which the main window will display for us

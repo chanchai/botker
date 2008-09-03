@@ -16,3 +16,9 @@ C:\Users\Aline\Documents\Visual Studio 2008\Projects\BotKer\TestEventSender\obj\
 C:\Users\Aline\Documents\Visual Studio 2008\Projects\BotKer\TestEventSender\obj\Debug\TestEventSender.csproj.GenerateResource.Cache
 C:\Users\Aline\Documents\Visual Studio 2008\Projects\BotKer\TestEventSender\obj\Debug\TestEventSender.exe
 C:\Users\Aline\Documents\Visual Studio 2008\Projects\BotKer\TestEventSender\obj\Debug\TestEventSender.pdb
+C:\Documents and Settings\Armand\Mes documents\Visual Studio 2008\Projects\botker\TestEventSender\bin\Debug\TestEventSender.exe
+C:\Documents and Settings\Armand\Mes documents\Visual Studio 2008\Projects\botker\TestEventSender\bin\Debug\TestEventSender.pdb
+C:\Documents and Settings\Armand\Mes documents\Visual Studio 2008\Projects\botker\TestEventSender\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Armand\Mes documents\Visual Studio 2008\Projects\botker\TestEventSender\obj\Debug\TestEventSender.Form1.resources
+C:\Documents and Settings\Armand\Mes documents\Visual Studio 2008\Projects\botker\TestEventSender\obj\Debug\TestEventSender.Properties.Resources.resources
+C:\Documents and Settings\Armand\Mes documents\Visual Studio 2008\Projects\botker\TestEventSender\obj\Debug\TestEventSender.csproj.GenerateResource.Cache

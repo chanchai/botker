@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
+
 
 namespace CodeReflection.ScreenCapturingDemo
 {
@@ -549,11 +551,133 @@ this.PerformLayout();
         }
 
 
+        public Bitmap BitmapTo1Bpp(Bitmap img)
+        {
+            int w = img.Width;
+            int h = img.Height;
+
+            Bitmap bmp = new Bitmap(w, h, PixelFormat.Format1bppIndexed);
+
+            BitmapData data = bmp.LockBits(new Rectangle(0, 0, w, h), ImageLockMode.ReadWrite, PixelFormat.Format1bppIndexed);
+
+            for (int y = 0; y < h; y++)
+            {
+                byte[] scan = new byte[(w + 7) / 8];
+
+                for (int x = 0; x < w; x++)
+                {
+                    Color c = img.GetPixel(x, y);
+                    if (c.GetBrightness() >= 0.7) 
+                        scan[x / 8] |= (byte)(0x80 >> (x % 8));
+                }
+
+                Marshal.Copy(scan, 0, (IntPtr)((int)data.Scan0 + data.Stride * y), scan.Length);
+            }
+            bmp.UnlockBits(data);
+
+            return bmp;
+        }
+
+        /// <summary>
+        /// Copies a bitmap into a 1bpp/8bpp bitmap of the same dimensions, fast
+        /// </summary>
+        /// <param name="b">original bitmap</param>
+        /// <param name="bpp">1 or 8, target bpp</param>
+        /// <returns>a 1bpp copy of the bitmap</returns>
+        public Bitmap CopyToBpp(Bitmap b, int bpp)
+        {
+            if (bpp != 1 && bpp != 8) 
+                throw new System.ArgumentException("1 or 8", "bpp");
+
+            // Plan: built into Windows GDI is the ability to convert
+            // bitmaps from one format to another. Most of the time, this
+            // job is actually done by the graphics hardware accelerator card
+            // and so is extremely fast. The rest of the time, the job is done by
+            // very fast native code.
+            // We will call into this GDI functionality from C#. Our plan:
+            // (1) Convert our Bitmap into a GDI hbitmap (ie. copy unmanaged->managed)
+            // (2) Create a GDI monochrome hbitmap
+            // (3) Use GDI "BitBlt" function to copy from hbitmap into monochrome (as above)
+            // (4) Convert the monochrone hbitmap into a Bitmap (ie. copy unmanaged->managed)
+
+            int w = b.Width, h = b.Height;
+            IntPtr hbm = b.GetHbitmap(); // this is step (1)
+
+            // Step (2): create the monochrome bitmap.
+            // "BITMAPINFO" is an interop-struct which we define below.
+            // In GDI terms, it's a BITMAPHEADERINFO followed by an array of two RGBQUADs
+            Win32.BITMAPINFO bmi = new Win32.BITMAPINFO();
+
+            bmi.biSize = 40;  // the size of the BITMAPHEADERINFO struct
+            bmi.biWidth = w;
+            bmi.biHeight = h;
+            bmi.biPlanes = 1; // "planes" are confusing. We always use just 1. Read MSDN for more info.
+            bmi.biBitCount = (short)bpp; // ie. 1bpp or 8bpp
+            bmi.biCompression = Win32.BI_RGB; // ie. the pixels in our RGBQUAD table are stored as RGBs, not palette indexes
+            bmi.biSizeImage = (uint)(((w + 7) & 0xFFFFFFF8) * h / 8);
+            bmi.biXPelsPerMeter = 1000000; // not really important
+            bmi.biYPelsPerMeter = 1000000; // not really important
+
+            // Now for the colour table.
+            uint ncols = (uint)1 << bpp; // 2 colours for 1bpp; 256 colours for 8bpp
+            bmi.biClrUsed = ncols;
+            bmi.biClrImportant = ncols;
+            bmi.cols = new uint[256]; // The structure always has fixed size 256, even if we end up using fewer colours
+            if (bpp == 1) 
+            { 
+                bmi.cols[0] = Win32.MAKERGB(0, 0, 0); 
+                bmi.cols[1] = Win32.MAKERGB(255, 255, 255); 
+            }
+            else 
+            { 
+                for (int i = 0; i < ncols; i++) 
+                    bmi.cols[i] = Win32.MAKERGB(i, i, i); 
+            }
+
+            // For 8bpp we've created an palette with just greyscale colours.
+            // You can set up any palette you want here. Here are some possibilities:
+            // greyscale: for (int i=0; i<256; i++) bmi.cols[i]=MAKERGB(i,i,i);
+            // rainbow: bmi.biClrUsed=216; bmi.biClrImportant=216; int[] colv=new int[6]{0,51,102,153,204,255};
+            //          for (int i=0; i<216; i++) bmi.cols[i]=MAKERGB(colv[i/36],colv[(i/6)%6],colv[i%6]);
+            // optimal: a difficult topic: http://en.wikipedia.org/wiki/Color_quantization
+            // 
+            // Now create the indexed bitmap "hbm0"
+            IntPtr bits0; // not used for our purposes. It returns a pointer to the raw bits that make up the bitmap.
+            IntPtr hbm0 = Win32.CreateDIBSection(IntPtr.Zero, ref bmi, Win32.DIB_RGB_COLORS, out bits0, IntPtr.Zero, 0);
+ 
+            //
+            // Step (3): use GDI's BitBlt function to copy from original hbitmap into monocrhome bitmap
+            // GDI programming is kind of confusing... nb. The GDI equivalent of "Graphics" is called a "DC".
+            IntPtr sdc = Win32.GetDC(IntPtr.Zero);       // First we obtain the DC for the screen
+            
+            // Next, create a DC for the original hbitmap
+            IntPtr hdc = Win32.CreateCompatibleDC(sdc); Win32.SelectObject(hdc, hbm);
+            
+            // and create a DC for the monochrome hbitmap
+            IntPtr hdc0 = Win32.CreateCompatibleDC(sdc); Win32.SelectObject(hdc0, hbm0);
+            
+            // Now we can do the BitBlt:
+            Win32.BitBlt(hdc0, 0, 0, w, h, hdc, 0, 0, Win32.SRCCOPY);
+            
+            // Step (4): convert this monochrome hbitmap back into a Bitmap:
+            Bitmap b0 = Bitmap.FromHbitmap(hbm0);
+            
+            // Finally some cleanup.
+            Win32.DeleteDC(hdc);
+            Win32.DeleteDC(hdc0);
+            Win32.ReleaseDC(IntPtr.Zero, sdc);
+            Win32.DeleteObject(hbm);
+            Win32.DeleteObject(hbm0);
+ 
+            //
+            return b0;
+        }
+
         private Bitmap ZoomImage(Image bmp, int zoom)
         {
             Bitmap bmpZoom = new Bitmap(bmp.Width * zoom, bmp.Height * zoom);
             Graphics g = Graphics.FromImage(bmpZoom);
-
+            
             Rectangle srcRect = new Rectangle(0, 0, bmp.Width, bmp.Height);
             Rectangle dstRect = new Rectangle(0, 0, bmpZoom.Width, bmpZoom.Height);
 
@@ -594,19 +718,22 @@ this.PerformLayout();
 				// capture that window
 				Bitmap image = ScreenCapturing.GetWindowCaptureAsBitmap(handle);
                 
-                bmpList = this.SplitImage(image, 15, 1, 2);
+                bmpList = this.SplitImage(image, 3, 1, 2);
 
-                
+ 
+                // image = this.CopyToBpp(bmpList[0], 8);
+                // image = this.BitmapTo1Bpp(bmpList[0]);
+                image = bmpList[0];
+
                 dtStart = DateTime.Now;
-                DoOCR(bmpList[0], "fra");
+                DoOCR(image, "fra");
                 dtEnd = DateTime.Now;
 
                 TimeSpan tsDiff = dtEnd.Subtract(dtStart);
                 MessageBox.Show(tsDiff.Milliseconds+" s");
-                
-
+            
 				// fire our image read event, which the main window will display for us
-                this.OnImageReadyForDisplay(bmpList[0]);
+                this.OnImageReadyForDisplay(image);
 /*          }
 			catch(Exception ex)
 			{

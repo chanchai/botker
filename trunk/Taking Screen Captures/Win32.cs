@@ -652,9 +652,6 @@ namespace CodeReflection.ScreenCapturingDemo
 		public static extern int ReleaseCapture();
 		
 		[DllImport("user32.dll")]
-		public static extern IntPtr SelectObject(IntPtr hDc, IntPtr hObject);
-
-		[DllImport("user32.dll")]
 		public static extern IntPtr GetStockObject(int nObject);
 
 		[DllImport("user32.dll")]
@@ -711,17 +708,57 @@ namespace CodeReflection.ScreenCapturingDemo
 
 		}
 
+        [StructLayout(LayoutKind.Sequential)]
+        public struct BITMAPINFO
+        {
+            public uint biSize;
+            public int biWidth, biHeight;
+            public short biPlanes, biBitCount;
+            public uint biCompression, biSizeImage;
+            public int biXPelsPerMeter, biYPelsPerMeter;
+            public uint biClrUsed, biClrImportant;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
+            public uint[] cols;
+        }
+
 		[DllImport("gdi32.dll")]
 		public static extern bool BitBlt(IntPtr hdcDst, int xDst, int yDst, int cx, int cy, IntPtr hdcSrc, int xSrc, int ySrc, uint ulRop);
-		
+
 		[DllImport("gdi32.dll")]
 		public static extern bool StretchBlt(IntPtr hdcDst, int xDst, int yDst, int cx, int cy, IntPtr hdcSrc, int xSrc, int ySrc, int cxSrc, int cySrc, uint ulRop);
 
 		[DllImport("gdi32.dll")]
 		public static extern IntPtr CreateDC(IntPtr lpszDriver, string lpszDevice, IntPtr lpszOutput, IntPtr lpInitData);
-		
+
+        [DllImport("gdi32.dll")]
+        public static extern IntPtr CreateCompatibleDC(IntPtr hdc);
+
 		[DllImport("gdi32.dll")]
 		public static extern IntPtr DeleteDC(IntPtr hdc);
+
+        [DllImport("gdi32.dll")]
+        public static extern IntPtr CreateDIBSection(IntPtr hdc, ref BITMAPINFO bmi, uint Usage, out IntPtr bits, IntPtr hSection, uint dwOffset);
+
+        [DllImport("gdi32.dll")]
+        public static extern IntPtr SelectObject(IntPtr hDc, IntPtr hObject);
+
+        [DllImport("gdi32.dll")]
+        public static extern bool DeleteObject(IntPtr hObject);
+
+
+        public static uint BI_RGB = 0;
+
+        public static uint DIB_RGB_COLORS = 0;
+
+        public static uint SRCCOPY = 0x00CC0020;
+
+
+        public static uint MAKERGB(int r, int g, int b)
+        {
+            return ((uint)(b & 255)) | ((uint)((r & 255) << 8)) | ((uint)((g & 255) << 16));
+        }
+
+
 
 		#endregion
 
